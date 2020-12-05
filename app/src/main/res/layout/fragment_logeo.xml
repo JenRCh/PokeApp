@@ -5,7 +5,8 @@
     android:background="@drawable/bg_color"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".fragments.LogeoFragment">
+
 
 
     <ImageView
@@ -16,7 +17,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_pok_mon_logo"/>
+        app:srcCompat="@drawable/ic_pok_mon_logo"
+        android:contentDescription="TODO" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
@@ -89,7 +91,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/ic_pokemon" />
+            app:srcCompat="@drawable/ic_pokemon"
+            android:contentDescription="TODO" />
 
         <Button
             android:id="@+id/btnLogin"

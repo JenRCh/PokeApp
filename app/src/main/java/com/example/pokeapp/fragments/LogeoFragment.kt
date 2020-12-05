@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.pokeapp.R
 import kotlinx.android.synthetic.main.fragment_logeo.*
 
@@ -21,7 +22,10 @@ class LogeoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        btnLogin
+
+        btnLogin.setOnClickListener{
+            findNavController().navigate(R.id.action_logeoFragment2_to_homeFragment2)
+        }
     }
 
 }

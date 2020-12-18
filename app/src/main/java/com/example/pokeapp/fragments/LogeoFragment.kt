@@ -24,7 +24,9 @@ class LogeoFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         btnLogin.setOnClickListener{
-            findNavController().navigate(R.id.action_logeoFragment2_to_homeFragment2)
+            val action = LogeoFragmentDirections.actionLogeoFragment2ToHomeFragment2()
+            findNavController().navigate(action)
+           // findNavController().navigate(R.id.action_logeoFragment2_to_homeFragment2)
         }
     }
 

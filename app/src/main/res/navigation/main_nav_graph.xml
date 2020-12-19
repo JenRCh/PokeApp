@@ -21,5 +21,9 @@
         android:id="@+id/homeFragment2"
         android:name="com.example.pokeapp.fragments.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <argument
+            android:name="email"
+            app:argType="string" />
+    </fragment>
 </navigation>

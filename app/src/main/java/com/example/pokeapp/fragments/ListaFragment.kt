@@ -1,5 +1,6 @@
 package com.example.pokeapp.fragments
 
+import android.graphics.drawable.ClipDrawable.VERTICAL
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -7,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.pokeapp.R
 import com.example.pokeapp.adapter.PokemonListAdapter
 import com.example.pokeapp.viewmodels.PokemonListViewModel
@@ -16,7 +18,9 @@ import kotlinx.android.synthetic.main.fragment_lista.*
 
 class ListaFragment : Fragment() {
     private val viewModel : PokemonListViewModel by viewModels()
-    private val adapter = PokemonListAdapter()
+    private val adapter = PokemonListAdapter{pokemon ->
+        Log.d("Clicked","Hacerlo${pokemon.name}")
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,7 +34,9 @@ class ListaFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         pokemonRecyclerView.adapter = adapter
-
+        pokemonRecyclerView.addItemDecoration(DividerItemDecoration(requireContext(),
+            DividerItemDecoration.VERTICAL
+        ))
 
         viewModel.getPokemonListResponse().observe(viewLifecycleOwner){ pokemonList ->
            // Log.d("Imprimir",pokemonList.toString())

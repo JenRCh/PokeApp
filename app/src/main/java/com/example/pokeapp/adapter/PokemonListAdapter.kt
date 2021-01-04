@@ -1,14 +1,16 @@
 package com.example.pokeapp.adapter
 
 import android.view.LayoutInflater
+import android.view.OrientationEventListener
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ExpandableListView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pokeapp.R
 import com.example.pokeapp.models.Pokemon
 import kotlinx.android.synthetic.main.pokemon_cell.view.*
 
-class PokemonListAdapter : RecyclerView.Adapter<PokemonListAdapter.PokemonViewMolder>() {
+class PokemonListAdapter(val clickListener: (Pokemon) -> Unit) : RecyclerView.Adapter<PokemonListAdapter.PokemonViewMolder>() {
 
     var pokemonList: List<Pokemon> = emptyList()
     set(value){
@@ -19,6 +21,10 @@ class PokemonListAdapter : RecyclerView.Adapter<PokemonListAdapter.PokemonViewMo
     inner class PokemonViewMolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         fun bind(pokemon: Pokemon){
             itemView.nameTextView.text = pokemon.name
+
+            itemView.setOnClickListener{
+                clickListener.invoke(pokemon)
+            }
         }
     }
 

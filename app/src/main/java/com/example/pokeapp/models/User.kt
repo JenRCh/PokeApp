@@ -3,17 +3,15 @@ package com.example.pokeapp.models
 import android.os.Parcel
 import android.os.Parcelable
 
-data class User(val userName: String, val masculino: Boolean, val femenino: Boolean) : Parcelable {
+data class User(val userName: String, val genero: String) : Parcelable {
     constructor(parcel: Parcel) : this(
             parcel.readString()?:"",
-            parcel.readByte() != 0.toByte(),
-            parcel.readByte() != 0.toByte()) {
+            parcel.readString()?:"") {
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(userName)
-        parcel.writeByte(if (masculino) 1 else 0)
-        parcel.writeByte(if (femenino) 1 else 0)
+        parcel.writeString(genero)
     }
 
     override fun describeContents(): Int {

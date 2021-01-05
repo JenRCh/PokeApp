@@ -46,9 +46,18 @@ class LogeoFragment : Fragment() {
 
 
        btnLogin.setOnClickListener{
-           val action = LogeoFragmentDirections.actionLogeoFragment2ToHomeFragment2(
-                   User(entrenador.text.toString(),rMasculino.isChecked,rFemenino.isChecked))
-            findNavController().navigate(action)
+
+           if(radioGroup.checkedRadioButtonId == R.id.rFemenino){
+               val action = LogeoFragmentDirections.actionLogeoFragment2ToHomeFragment2(
+                       User(entrenador.text.toString(),"Femenino"))
+               findNavController().navigate(action)
+           }
+           else{
+               val action = LogeoFragmentDirections.actionLogeoFragment2ToHomeFragment2(
+                       User(entrenador.text.toString(),"Masculino"))
+               findNavController().navigate(action)
+           }
+
            // findNavController().navigate(R.id.action_logeoFragment2_to_homeFragment2)
         }
 
@@ -65,7 +74,8 @@ class LogeoFragment : Fragment() {
                val areValidFields : Boolean = !TextUtils.isEmpty(entrenador.text.toString())
                btnLogin.isEnabled = areValidFields
 
-                entrenador.error = if(TextUtils.isEmpty(entrenador.text.toString())) "Campo requerido" else null
+               entrenador.error = if(TextUtils.isEmpty(entrenador.text.toString())) "Campo requerido" else null
+
             }
 
         })

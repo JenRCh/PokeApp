@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.pokeapp.R
 import com.example.pokeapp.adapter.PokemonListAdapter
@@ -20,6 +21,7 @@ class ListaFragment : Fragment() {
     private val viewModel : PokemonListViewModel by viewModels()
     private val adapter = PokemonListAdapter{pokemon ->
         Log.d("Clicked","Hacerlo${pokemon.name}")
+        findNavController().navigate(R.id.action_listaFragment_to_detailFragment)
     }
 
     override fun onCreateView(

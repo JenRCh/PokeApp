@@ -39,7 +39,11 @@
         android:id="@+id/detailFragment"
         android:name="com.example.pokeapp.fragments.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="name"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/favoritoFragment"
         android:name="com.example.pokeapp.fragments.FavoritoFragment"

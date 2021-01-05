@@ -12,9 +12,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.pokeapp.R
 import com.example.pokeapp.adapter.PokemonListAdapter
+import com.example.pokeapp.models.User
 import com.example.pokeapp.viewmodels.PokemonListViewModel
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_lista.*
+import kotlinx.android.synthetic.main.fragment_logeo.*
 
 
 class ListaFragment : Fragment() {
@@ -22,6 +24,9 @@ class ListaFragment : Fragment() {
     private val adapter = PokemonListAdapter{pokemon ->
         Log.d("Clicked","Hacerlo${pokemon.name}")
         findNavController().navigate(R.id.action_listaFragment_to_detailFragment)
+
+       // val action = ListaFragmentDirections.actionListaFragmentToDetailFragment(pokemon.name)
+       // findNavController().navigate(action)
     }
 
     override fun onCreateView(

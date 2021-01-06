@@ -24,6 +24,8 @@ class ListaFragment : Fragment() {
     private val adapter = PokemonListAdapter{pokemon ->
         Log.d("Clicked","Hacerlo${pokemon.name}")
         findNavController().navigate(R.id.action_homeFragment_to_bottomMenuFragment)
+
+       // val action =
 //action_bottomMenuFragment_to_detailFragment
        // val action = ListaFragmentDirections.actionListaFragmentToDetailFragment(pokemon.name)
        // findNavController().navigate(action)

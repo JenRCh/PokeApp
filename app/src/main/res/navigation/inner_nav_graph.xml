@@ -13,6 +13,10 @@
         android:id="@+id/detailFragment"
         android:name="com.example.pokeapp.fragments.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="user"
+            app:argType="com.example.pokeapp.models.User" />
+    </fragment>
 
 </navigation>

@@ -23,10 +23,13 @@ class ListaFragment : Fragment() {
     private val viewModel : PokemonListViewModel by viewModels()
     private val adapter = PokemonListAdapter{pokemon ->
         Log.d("Clicked","Hacerlo${pokemon.name}")
-        findNavController().navigate(R.id.action_listaFragment_to_detailFragment)
-
+        findNavController().navigate(R.id.action_homeFragment_to_bottomMenuFragment)
+//action_bottomMenuFragment_to_detailFragment
        // val action = ListaFragmentDirections.actionListaFragmentToDetailFragment(pokemon.name)
        // findNavController().navigate(action)
+        //action_homeFragment_to_bottomMenuFragment
+
+
     }
 
     override fun onCreateView(

@@ -11,42 +11,23 @@
         tools:layout="@layout/fragment_logeo" >
         <action
             android:id="@+id/action_logeoFragment2_to_homeFragment2"
-            app:destination="@id/homeFragment2"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
-        android:id="@+id/homeFragment2"
+        android:id="@+id/homeFragment"
         android:name="com.example.pokeapp.fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <argument
             android:name="user"
             app:argType="com.example.pokeapp.models.User" />
-    </fragment>
-    <fragment
-        android:id="@+id/listaFragment"
-        android:name="com.example.pokeapp.fragments.ListaFragment"
-        android:label="fragment_lista"
-        tools:layout="@layout/fragment_lista" >
         <action
-            android:id="@+id/action_listaFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+            android:id="@+id/action_homeFragment_to_bottomMenuFragment"
+            app:destination="@id/bottomMenuFragment" />
     </fragment>
     <fragment
-        android:id="@+id/detailFragment"
-        android:name="com.example.pokeapp.fragments.DetailFragment"
-        android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" >
-        <argument
-            android:name="name"
-            app:argType="string" />
-    </fragment>
-    <fragment
-        android:id="@+id/favoritoFragment"
-        android:name="com.example.pokeapp.fragments.FavoritoFragment"
-        android:label="fragment_favorito"
-        tools:layout="@layout/fragment_favorito" />
+        android:id="@+id/bottomMenuFragment"
+        android:name="com.example.pokeapp.fragments.BottomMenuFragment"
+        android:label="fragment_bottom_menu"
+        tools:layout="@layout/fragment_bottom_menu" />
 </navigation>

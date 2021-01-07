@@ -29,5 +29,9 @@
         android:id="@+id/bottomMenuFragment"
         android:name="com.example.pokeapp.fragments.BottomMenuFragment"
         android:label="fragment_bottom_menu"
-        tools:layout="@layout/fragment_bottom_menu" />
+        tools:layout="@layout/fragment_bottom_menu" >
+        <argument
+            android:name="name"
+            app:argType="string" />
+    </fragment>
 </navigation>

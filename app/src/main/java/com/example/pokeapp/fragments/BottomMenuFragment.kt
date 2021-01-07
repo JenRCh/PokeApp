@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.fragment_bottom_menu.*
 
 class BottomMenuFragment : Fragment() {
 
+    private val args : BottomMenuFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

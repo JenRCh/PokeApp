@@ -22,14 +22,14 @@
             android:name="user"
             app:argType="com.example.pokeapp.models.User" />
         <action
-            android:id="@+id/action_homeFragment_to_bottomMenuFragment"
-            app:destination="@id/bottomMenuFragment" />
+            android:id="@+id/action_homeFragment_to_detalleFragment"
+            app:destination="@id/detalleFragment" />
     </fragment>
     <fragment
-        android:id="@+id/bottomMenuFragment"
-        android:name="com.example.pokeapp.fragments.BottomMenuFragment"
-        android:label="fragment_bottom_menu"
-        tools:layout="@layout/fragment_bottom_menu" >
+        android:id="@+id/detalleFragment"
+        android:name="com.example.pokeapp.fragments.DetalleFragment"
+        android:label="fragment_detalle"
+        tools:layout="@layout/fragment_detalle" >
         <argument
             android:name="name"
             app:argType="string" />

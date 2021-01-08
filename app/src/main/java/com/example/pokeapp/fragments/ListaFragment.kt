@@ -25,8 +25,11 @@ class ListaFragment : Fragment() {
         Log.d("Clicked","Hacerlo${pokemon.name}")
         //findNavController().navigate(R.id.action_homeFragment_to_bottomMenuFragment)
 
-        val action = HomeFragmentDirections.actionHomeFragmentToBottomMenuFragment(pokemon.name.toString())
-      findNavController().navigate(action)
+        val action1 = HomeFragmentDirections.actionHomeFragmentToDetalleFragment(pokemon.name.toString())
+        findNavController().navigate(action1)
+
+       // val action = HomeFragmentDirections.actionHomeFragmentToBottomMenuFragment(pokemon.name.toString())
+     // findNavController().navigate(action)
     }
 
     override fun onCreateView(

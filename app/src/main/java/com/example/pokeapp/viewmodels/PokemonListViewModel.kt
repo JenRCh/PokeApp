@@ -10,18 +10,19 @@ import com.example.pokeapp.network.RetrofitProvider
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import io.reactivex.rxjava3.core.Observable
 
 
 class PokemonListViewModel : ViewModel(){
     val retrofitProvider = RetrofitProvider()
 
-    private val pokemonListResponse: MutableLiveData<List<Pokemon>> = MutableLiveData()
+   // private val pokemonListResponse: MutableLiveData<List<Pokemon>> = MutableLiveData()
     private val isMakingRequest: MutableLiveData<Boolean> = MutableLiveData()
     private val isError: MutableLiveData<Boolean> = MutableLiveData()
 
-    fun getPokemonListResponse() :LiveData<List<Pokemon>>{
-        return pokemonListResponse
-    }
+//    fun getPokemonListResponse() :LiveData<List<Pokemon>>{
+//        return pokemonListResponse
+//    }
 
     fun getIsLoading() :LiveData<Boolean>{
         return isMakingRequest
@@ -31,30 +32,32 @@ class PokemonListViewModel : ViewModel(){
         return isError
     }
 
-    fun getPokemonList(){
+    fun getPokemonList(): Observable<List<Pokemon>> {
         isMakingRequest.postValue(true)
-        retrofitProvider.getPokemonService().getPokemonList().enqueue(object :
-            Callback<PokemonResponse>{
-            override fun onResponse(
-                call: Call<PokemonResponse>,
-                response: Response<PokemonResponse>
-            ) {
-                isMakingRequest.postValue(false)
-                if(response.isSuccessful){
-                    response.body()?.let { unwrappedResponse ->
-                       // Log.d("Lista", unwrappedResponse.toString())
-                        pokemonListResponse.postValue(unwrappedResponse.results)
-                    }
-
-                }else{
-                    isError.postValue(true)
-                }
-            }
-
-            override fun onFailure(call: Call<PokemonResponse>, t: Throwable) {
-                isMakingRequest.postValue(false)
-                isError.postValue(true)
-            }
-        })
+        return retrofitProvider.getPokemonService().getPokemonList()
+                .map { data -> data.results }
+            .doOnNext{ isMakingRequest.postValue(false)}
+//                .enqueue(object :
+//            Callback<PokemonResponse>{
+//            override fun onResponse(
+//                call: Call<PokemonResponse>,
+//                response: Response<PokemonResponse>
+//            ) {
+//                isMakingRequest.postValue(false)
+//                if(response.isSuccessful){
+//                    response.body()?.let { unwrappedResponse ->
+//                       // Log.d("Lista", unwrappedResponse.toString())
+//                        pokemonListResponse.postValue(unwrappedResponse.results)
+//                    }
+//                }else{
+//                    isError.postValue(true)
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<PokemonResponse>, t: Throwable) {
+//                isMakingRequest.postValue(false)
+//                isError.postValue(true)
+//            }
+//        })
     }
 }

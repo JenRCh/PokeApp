@@ -15,8 +15,9 @@ import com.example.pokeapp.adapter.PokemonListAdapter
 import com.example.pokeapp.models.User
 import com.example.pokeapp.viewmodels.PokemonListViewModel
 import com.google.android.material.snackbar.Snackbar
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_lista.*
-import kotlinx.android.synthetic.main.fragment_logeo.*
 
 
 class ListaFragment : Fragment() {
@@ -45,14 +46,21 @@ class ListaFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         pokemonRecyclerView.adapter = adapter
         pokemonRecyclerView.addItemDecoration(DividerItemDecoration(requireContext(),
-            DividerItemDecoration.VERTICAL
-        ))
+            DividerItemDecoration.VERTICAL ))
 
-        viewModel.getPokemonListResponse().observe(viewLifecycleOwner){ pokemonList ->
-           // Log.d("Imprimir",pokemonList.toString())
-            adapter.pokemonList = pokemonList
-            pokemonRecyclerView.visibility = View.VISIBLE
-        }
+//        viewModel.getPokemonListResponse().observe(viewLifecycleOwner){ pokemonList ->
+//           // Log.d("Imprimir",pokemonList.toString())
+//            adapter.pokemonList = pokemonList
+//            pokemonRecyclerView.visibility = View.VISIBLE
+//        }
+
+        viewModel.getPokemonList()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe{ pokemonList ->
+                adapter.pokemonList = pokemonList
+                pokemonRecyclerView.visibility = View.VISIBLE
+            }
 
         viewModel.getIsLoading().observe(viewLifecycleOwner){ isLoading ->
             progressBar.visibility = if(isLoading) View.VISIBLE else View.GONE

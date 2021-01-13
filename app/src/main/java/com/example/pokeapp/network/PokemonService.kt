@@ -5,6 +5,7 @@ import com.example.pokeapp.models.PokemonResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import io.reactivex.rxjava3.core.Observable
+import retrofit2.http.Path
 
 
 interface PokemonService {
@@ -13,7 +14,7 @@ interface PokemonService {
 
     @GET
     ("pokemon/{name}/")
-    fun getPokemonDetalle(): Observable<DetallePokemonResponse>
+    fun getPokemonDetalle(@Path("name") name:String): Observable<DetallePokemonResponse>
 }
 
 

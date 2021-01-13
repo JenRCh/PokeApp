@@ -35,7 +35,7 @@ class PokemonListViewModel : ViewModel(){
     fun getPokemonList(): Observable<List<Pokemon>> {
         isMakingRequest.postValue(true)
         return retrofitProvider.getPokemonService().getPokemonList()
-                .map { data -> data.results }
+                .map { response -> response.results }
             .doOnNext{ isMakingRequest.postValue(false)}
 //                .enqueue(object :
 //            Callback<PokemonResponse>{

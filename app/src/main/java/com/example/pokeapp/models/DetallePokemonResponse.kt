@@ -1,7 +1,7 @@
 package com.example.pokeapp.models
 
 data class DetallePokemonResponse(val abilities: List<abilitiesModel>,
-                                  val base_experience:String,
+                                  val base_experience:Int,
                                   val forms: List<formsModel>,
                                   val game_indices: List<gameModel>,
                                   val height:Int,
@@ -10,6 +10,6 @@ data class DetallePokemonResponse(val abilities: List<abilitiesModel>,
                                   val location_area_encounters:String,
                                   val name:String,
                                   val order:Int,
-                                  val species:List<speciesModel>,
-                                  val sprites: List<spritesModel>,
+                                  val species:speciesModel,
+                                  val sprites: spritesModel,
                                   val weight:Int)

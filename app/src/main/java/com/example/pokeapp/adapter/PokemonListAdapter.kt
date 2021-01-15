@@ -28,8 +28,6 @@ class PokemonListAdapter(val clickListener: (DetallePokemonResponse) -> Unit) : 
                     .circleCrop()
                     .into(itemView.pokemonImageView)
 
-            itemView.pokemonImageView
-
             itemView.setOnClickListener{
                 clickListener.invoke(pokemon)
             }

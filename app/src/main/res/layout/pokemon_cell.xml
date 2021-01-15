@@ -28,12 +28,12 @@
         android:layout_marginEnd="16dp"
         tools:text="Jennilyn Rojas Chaves"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/nextArrow"
+        app:layout_constraintEnd_toStartOf="@id/star"
         app:layout_constraintStart_toEndOf="@+id/pokemonImageView"
         app:layout_constraintTop_toTopOf="@+id/pokemonImageView" />
 
     <ImageView
-        android:id="@+id/nextArrow"
+        android:id="@+id/star"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -53,6 +53,6 @@
         android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/nameTextView"
-        app:layout_constraintTop_toBottomOf="@+id/nextArrow"
+        app:layout_constraintTop_toBottomOf="@+id/star"
         tools:ignore="ContentDescription" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,6 +10,7 @@ data class DetallePokemonResponse( //val abilities: List<abilitiesModel>,
 //                                  val location_area_encounters:String,
                                   val name:String,
                                   val order:Int,
+        val weight:Int,
 //                                  val species:speciesModel,
                                  val sprites: spritesModel)
                                  // val weight:Int)

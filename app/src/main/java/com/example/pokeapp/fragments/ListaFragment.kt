@@ -28,7 +28,7 @@ class ListaFragment : Fragment() {
         //findNavController().navigate(R.id.action_homeFragment_to_bottomMenuFragment)
 
        // val action1 = HomeFragmentDirections.actionHomeFragmentToDetalleFragment(pokemon.name.toString())
-        val action1 = HomeFragmentDirections.actionHomeFragmentToDetalleFragment(PokemonInfo(pokemon.base_experience,
+        val action1 = HomeFragmentDirections.actionHomeFragmentToDetalleFragment(PokemonInfo(pokemon.base_experience,pokemon.weight,
         pokemon.height,pokemon.id,pokemon.name,pokemon.order,pokemon.sprites.front_default))
         findNavController().navigate(action1)
 

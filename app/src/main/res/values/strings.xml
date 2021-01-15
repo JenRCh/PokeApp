@@ -9,4 +9,6 @@
     <string name="error_text">Ha ocurrido un error</string>
     <string name="lista_menu_text">Detalle</string>
     <string name="favorito_menu_text">Favorito</string>
+    <string name="weightPoke">Weight:</string>
+    <string name="heightPoke">Height:</string>
 </resources>

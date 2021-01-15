@@ -3,10 +3,11 @@ package com.example.pokeapp.models
 import android.os.Parcel
 import android.os.Parcelable
 
-data class PokemonInfo (val base_experience:Int, val height:Int, val id:Int,
+data class PokemonInfo (val base_experience:Int, val weight:Int, val height:Int, val id:Int,
                         val name:String,val order:Int,val image:String) : Parcelable{
                               constructor(parcel: Parcel): this (
                                       (parcel.readString() ?: 0) as Int,
+                                      (parcel.readString()  ?: 0) as Int,
                                       (parcel.readString()  ?: 0) as Int,
                                       (parcel.readString()  ?: 0) as Int,
                                       parcel.readString() ?: "",

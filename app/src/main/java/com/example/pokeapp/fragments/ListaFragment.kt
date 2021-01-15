@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.pokeapp.R
 import com.example.pokeapp.adapter.PokemonListAdapter
+import com.example.pokeapp.models.PokemonInfo
 import com.example.pokeapp.models.User
 import com.example.pokeapp.viewmodels.PokemonListViewModel
 import com.google.android.material.snackbar.Snackbar
@@ -26,7 +27,9 @@ class ListaFragment : Fragment() {
         Log.d("Clicked","Hacerlo${pokemon.name}")
         //findNavController().navigate(R.id.action_homeFragment_to_bottomMenuFragment)
 
-        val action1 = HomeFragmentDirections.actionHomeFragmentToDetalleFragment(pokemon.name.toString())
+       // val action1 = HomeFragmentDirections.actionHomeFragmentToDetalleFragment(pokemon.name.toString())
+        val action1 = HomeFragmentDirections.actionHomeFragmentToDetalleFragment(PokemonInfo(pokemon.base_experience,
+        pokemon.height,pokemon.id,pokemon.name,pokemon.order,pokemon.sprites.front_default))
         findNavController().navigate(action1)
 
        // val action = HomeFragmentDirections.actionHomeFragmentToBottomMenuFragment(pokemon.name.toString())

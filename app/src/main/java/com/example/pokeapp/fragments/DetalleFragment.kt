@@ -21,7 +21,7 @@ class DetalleFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        detailTextVew1.text = args.name.toString()
+        detailTextVew1.text = args.PokeInfo.name.toString()
     }
 
 }

@@ -31,7 +31,7 @@
         android:label="fragment_detalle"
         tools:layout="@layout/fragment_detalle" >
         <argument
-            android:name="name"
-            app:argType="string" />
+            android:name="PokeInfo"
+            app:argType="com.example.pokeapp.models.PokemonInfo" />
     </fragment>
 </navigation>

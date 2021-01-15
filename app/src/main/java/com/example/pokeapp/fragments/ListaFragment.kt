@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.pokeapp.R
 import com.example.pokeapp.adapter.PokemonListAdapter
+import com.example.pokeapp.db.PokemonDB
 import com.example.pokeapp.models.PokemonInfo
 import com.example.pokeapp.models.User
 import com.example.pokeapp.viewmodels.PokemonListViewModel
@@ -25,16 +26,12 @@ import kotlinx.android.synthetic.main.pokemon_cell.*
 class ListaFragment : Fragment() {
     private val viewModel : PokemonListViewModel by viewModels()
     private val adapter = PokemonListAdapter{pokemon ->
-        Log.d("Clicked","Hacerlo${pokemon.name}")
-        //findNavController().navigate(R.id.action_homeFragment_to_bottomMenuFragment)
-
-       // val action1 = HomeFragmentDirections.actionHomeFragmentToDetalleFragment(pokemon.name.toString())
         val action1 = HomeFragmentDirections.actionHomeFragmentToDetalleFragment(PokemonInfo(pokemon.base_experience,pokemon.weight,
         pokemon.height,pokemon.id,pokemon.name,pokemon.order,pokemon.sprites.front_default))
         findNavController().navigate(action1)
 
-       // val action = HomeFragmentDirections.actionHomeFragmentToBottomMenuFragment(pokemon.name.toString())
-     // findNavController().navigate(action)
+        viewModel.insertFavorite(PokemonDB(pokemon.id,pokemon.weight,pokemon.height,pokemon.name,pokemon.sprites.front_default))
+
     }
 
     override fun onCreateView(

@@ -1,23 +1,40 @@
 package com.example.pokeapp.viewmodels
 
+import android.app.Application
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
+import com.example.pokeapp.db.PokemonDB
+import com.example.pokeapp.db.PokemonDatabase
 import com.example.pokeapp.models.DetallePokemonResponse
 import com.example.pokeapp.models.Pokemon
 import com.example.pokeapp.models.PokemonResponse
 import com.example.pokeapp.network.RetrofitProvider
+import com.example.pokeapp.repository.PokemonRepository
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import io.reactivex.rxjava3.core.Observable
+import kotlinx.coroutines.launch
 
 
-class PokemonListViewModel : ViewModel(){
+class PokemonListViewModel (application: Application): AndroidViewModel(application){
     val retrofitProvider = RetrofitProvider()
     private val offset: Int = 210
     private val limit: Int = 20
+
+    private val repository : PokemonRepository
+    private val database : PokemonDatabase = PokemonDatabase.getDatabase(application)
+
+    init {
+        repository = PokemonRepository(database.pokemonDao())
+    }
+
+    fun insertFavorite(pokemonDB: PokemonDB){
+        viewModelScope.launch {
+            repository.insert(pokemonDB)
+        }
+    }
+
 
    // private val pokemonListResponse: MutableLiveData<List<Pokemon>> = MutableLiveData()
     private val isMakingRequest: MutableLiveData<Boolean> = MutableLiveData()

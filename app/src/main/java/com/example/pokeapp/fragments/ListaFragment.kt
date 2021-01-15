@@ -57,6 +57,10 @@ class ListaFragment : Fragment() {
         viewModel.getPokemonList()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
+                .doOnError { error ->
+                    Log.d("getPokemonList", error.toString())
+                }
+                .onErrorReturn { emptyList() }
             .subscribe{ pokemonList ->
                 adapter.pokemonList = pokemonList
                 pokemonRecyclerView.visibility = View.VISIBLE

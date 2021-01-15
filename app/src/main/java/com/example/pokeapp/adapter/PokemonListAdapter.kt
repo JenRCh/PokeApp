@@ -6,21 +6,29 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ExpandableListView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.pokeapp.R
+import com.example.pokeapp.models.DetallePokemonResponse
 import com.example.pokeapp.models.Pokemon
 import kotlinx.android.synthetic.main.pokemon_cell.view.*
 
-class PokemonListAdapter(val clickListener: (Pokemon) -> Unit) : RecyclerView.Adapter<PokemonListAdapter.PokemonViewMolder>() {
+class PokemonListAdapter(val clickListener: (DetallePokemonResponse) -> Unit) : RecyclerView.Adapter<PokemonListAdapter.PokemonViewMolder>() {
 
-    var pokemonList: List<Pokemon> = emptyList()
+    var pokemonList: List<DetallePokemonResponse> = emptyList()
     set(value){
         field = value
        // notifyDataSetChanged()
     }
 
     inner class PokemonViewMolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        fun bind(pokemon: Pokemon){
+        fun bind(pokemon: DetallePokemonResponse){
             itemView.nameTextView.text = pokemon.name
+            Glide.with(itemView.context)
+                    .load(pokemon.sprites.front_default.toString())
+                    .circleCrop()
+                    .into(itemView.pokemonImageView)
+
+            itemView.pokemonImageView
 
             itemView.setOnClickListener{
                 clickListener.invoke(pokemon)

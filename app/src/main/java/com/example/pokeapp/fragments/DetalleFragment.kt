@@ -30,10 +30,6 @@ class DetalleFragment : Fragment() {
                 .load(args.PokeInfo.image.toString())
                 .circleCrop()
                 .into(imageViewPokemon)
-//        Glide.with(itemView.context)
-//                .load(pokemon.sprites.front_default.toString())
-//                .circleCrop()
-//                .into(itemView.pokemonImageView)
     }
 
 }

@@ -6,10 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.pokeapp.R
 import com.example.pokeapp.adapter.PokemonFavoritoListAdapter
 import com.example.pokeapp.viewmodels.FavoritoViewModel
 import kotlinx.android.synthetic.main.fragment_favorito.*
+import kotlinx.android.synthetic.main.fragment_lista.*
 
 class FavoritoFragment : Fragment() {
 
@@ -27,6 +29,9 @@ class FavoritoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         pokemonFavoritoRecyclerView.adapter = adapter
+
+        pokemonFavoritoRecyclerView.addItemDecoration(DividerItemDecoration(requireContext(),
+                DividerItemDecoration.VERTICAL ))
 
         viewModel.getAllFavorites().observe(viewLifecycleOwner){ pokemonfavoritelist ->
            // favoritetext.text = "Nombre: ${pokemonfavoritelist.size}"

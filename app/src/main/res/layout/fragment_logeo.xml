@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_pok_mon_logo"
-        android:contentDescription="TODO" />
+        android:contentDescription="@string/todo" />
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -38,6 +38,7 @@
             android:id="@+id/entrenador"
             android:textColor="@color/white"
             android:layout_width="match_parent"
+            android:textColorHint="@color/white"
             android:layout_height="wrap_content"
             android:hint="@string/entrenador" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -98,7 +99,7 @@
             android:id="@+id/imageView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="TODO"
+            android:contentDescription="@string/todo"
             app:layout_constraintBottom_toTopOf="@+id/btnLogin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

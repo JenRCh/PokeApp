@@ -11,4 +11,8 @@
     <string name="favorito_menu_text">Favorito</string>
     <string name="weightPoke">Weight:</string>
     <string name="heightPoke">Height:</string>
+    <string name="todo">TODO</string>
+    <string name="name">Name</string>
+    <string name="weight">weight</string>
+    <string name="height">Height</string>
 </resources>

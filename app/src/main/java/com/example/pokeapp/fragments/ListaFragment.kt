@@ -39,7 +39,6 @@ class ListaFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         viewModel.getPokemonList()
         return inflater.inflate(R.layout.fragment_lista, container, false)
     }
@@ -49,12 +48,6 @@ class ListaFragment : Fragment() {
         pokemonRecyclerView.adapter = adapter
         pokemonRecyclerView.addItemDecoration(DividerItemDecoration(requireContext(),
             DividerItemDecoration.VERTICAL ))
-
-//        viewModel.getPokemonListResponse().observe(viewLifecycleOwner){ pokemonList ->
-//           // Log.d("Imprimir",pokemonList.toString())
-//            adapter.pokemonList = pokemonList
-//            pokemonRecyclerView.visibility = View.VISIBLE
-//        }
 
         viewModel.getPokemonList()
             .subscribeOn(Schedulers.io())
@@ -74,7 +67,6 @@ class ListaFragment : Fragment() {
 
         viewModel.getIsError().observe(viewLifecycleOwner){ isError ->
             Snackbar.make(parent,R.string.error_text,Snackbar.LENGTH_LONG).show()
-
         }
     }
 }

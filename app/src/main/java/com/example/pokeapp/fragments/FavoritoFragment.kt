@@ -22,7 +22,6 @@ class FavoritoFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_favorito, container, false)
     }
 
@@ -34,7 +33,6 @@ class FavoritoFragment : Fragment() {
                 DividerItemDecoration.VERTICAL ))
 
         viewModel.getAllFavorites().observe(viewLifecycleOwner){ pokemonfavoritelist ->
-           // favoritetext.text = "Nombre: ${pokemonfavoritelist.size}"
             adapter.pokemonfav = pokemonfavoritelist
         }
     }

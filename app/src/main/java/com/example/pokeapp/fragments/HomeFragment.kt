@@ -22,7 +22,6 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
@@ -35,7 +34,5 @@ class HomeFragment : Fragment() {
         TabLayoutMediator(tabLayout,pokemonViewPager){tab,position ->
             tab.text = position.toTabTitle()
         }.attach()
-       // name.text = args.user.userName
-
     }
 }

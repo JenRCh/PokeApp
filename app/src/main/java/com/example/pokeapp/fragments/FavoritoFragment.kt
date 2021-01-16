@@ -7,12 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.example.pokeapp.R
+import com.example.pokeapp.adapter.PokemonFavoritoListAdapter
 import com.example.pokeapp.viewmodels.FavoritoViewModel
 import kotlinx.android.synthetic.main.fragment_favorito.*
 
 class FavoritoFragment : Fragment() {
 
     val viewModel: FavoritoViewModel by  viewModels()
+    private val adapter = PokemonFavoritoListAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,9 +26,11 @@ class FavoritoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        pokemonFavoritoRecyclerView.adapter = adapter
 
         viewModel.getAllFavorites().observe(viewLifecycleOwner){ pokemonfavoritelist ->
-            favoritetext.text = "Nombre: ${pokemonfavoritelist.size}"
+           // favoritetext.text = "Nombre: ${pokemonfavoritelist.size}"
+            adapter.pokemonfav = pokemonfavoritelist
         }
     }
 

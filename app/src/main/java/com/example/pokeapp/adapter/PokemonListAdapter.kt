@@ -28,8 +28,8 @@ class PokemonListAdapter(val clickListener: (DetallePokemonResponse) -> Unit) : 
                     .circleCrop()
                     .into(itemView.pokemonImageView)
 
-            val isFavorite = R.drawable.ic_baseline_star_outline_24
-            itemView.star.setImageResource(isFavorite)
+//            val isFavorite = R.drawable.ic_baseline_star_outline_24
+//            itemView.star.setImageResource(isFavorite)
 
             itemView.setOnClickListener{
                 clickListener.invoke(pokemon)

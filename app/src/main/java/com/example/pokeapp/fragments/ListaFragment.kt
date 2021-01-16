@@ -30,8 +30,8 @@ class ListaFragment : Fragment() {
         pokemon.height,pokemon.id,pokemon.name,pokemon.order,pokemon.sprites.front_default))
         findNavController().navigate(action1)
 
-        viewModel.insertFavorite(PokemonDB(pokemon.id,pokemon.weight,pokemon.height,pokemon.name,
-                pokemon.sprites.front_default,pokemon.base_experience,pokemon.order))
+//        viewModel.insertFavorite(PokemonDB(pokemon.id,pokemon.weight,pokemon.height,pokemon.name,
+//                pokemon.sprites.front_default,pokemon.base_experience,pokemon.order))
 
     }
 

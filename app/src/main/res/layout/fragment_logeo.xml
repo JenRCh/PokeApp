@@ -39,6 +39,8 @@
             android:textColor="@color/white"
             android:layout_width="match_parent"
             android:textColorHint="@color/white"
+            android:inputType="text"
+            android:imeOptions="actionDone"
             android:layout_height="wrap_content"
             android:hint="@string/entrenador" />
     </com.google.android.material.textfield.TextInputLayout>

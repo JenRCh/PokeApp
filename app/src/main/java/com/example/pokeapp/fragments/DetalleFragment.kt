@@ -26,6 +26,8 @@ class DetalleFragment : Fragment() {
         textViewName.text = args.PokeInfo.name.toString();
         textViewWeightPoke.text = args.PokeInfo.weight.toString();
         textViewHeightPoke.text = args.PokeInfo.height.toString();
+        textVieworden.text = args.PokeInfo.order.toString();
+        textViewbase.text = args.PokeInfo.base_experience.toString()
         Glide.with(this)
                 .load(args.PokeInfo.image.toString())
                 .circleCrop()

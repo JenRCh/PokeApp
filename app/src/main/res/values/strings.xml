@@ -15,4 +15,8 @@
     <string name="name">Name</string>
     <string name="weight">weight</string>
     <string name="height">Height</string>
+    <string name="base">Experiencia base: </string>
+    <string name="bases">base</string>
+    <string name="order">Orden: </string>
+    <string name="orden">orden</string>
 </resources>
